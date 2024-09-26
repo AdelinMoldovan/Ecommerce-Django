@@ -11,9 +11,6 @@ NOTIFICATION_TYPE = (
 PAYOUT_METHOD = (
     ("PayPal", "PayPal"),
     ("Stripe", "Stripe"),
-    ("Nigerian Bank Account", "Nigerian Bank Account"),
-    ("Indian Bank Account", "Indian Bank Account"),
-    ("USA Bank Account", "USA Bank Account"),
 )
 
 
