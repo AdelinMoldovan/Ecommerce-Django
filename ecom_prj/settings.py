@@ -34,8 +34,8 @@ SECRET_KEY = 'django-insecure-&)0dbnucsu)$f4pgxd0ombb4)b+oj2ci9mi=yno-veu%^doqh!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ['.railway.app','*']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.railway.app','*']
+#ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'https://*.ngrok-free.app', 'https://fastcart.up.railway.app']
 SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
 
@@ -101,12 +101,13 @@ WSGI_APPLICATION = 'ecom_prj.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+   # 'default': {
+   #     'ENGINE': 'django.db.backends.sqlite3',
+   #
+   #     'NAME': BASE_DIR / 'db.sqlite3',
+   # }
 
-   # 'default': dj_database_url.config(conn_max_age=600)
+    'default': dj_database_url.config(conn_max_age=600)
 }
 
 
@@ -146,14 +147,14 @@ USE_TZ = True
 
 
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = BASE_DIR / 'staticfiles' #sunt comentate pentru railway le decomentez si comentez mai jos pentru local
+#STATIC_URL = 'static/'
+#STATICFILES_DIRS = [BASE_DIR / 'static']
+#STATIC_ROOT = BASE_DIR / 'staticfiles' #sunt comentate pentru railway le decomentez si comentez mai jos pentru local
 
-#STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #si asta de jos trebuie comentata
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 MEDIA_URL = 'media/'
