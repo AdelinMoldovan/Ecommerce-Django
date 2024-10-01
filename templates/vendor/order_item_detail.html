@@ -72,9 +72,9 @@
                             <select name="shipping_service" id="" class="form-select mb-4">
                                 <option selected disabled>--- Select Shipping Service ---</option>
                                 <option {% if item.shipping_service == 'DHL' %} selected {% endif %} value="DHL">DHL</option>
-                                <option {% if item.shipping_service == 'FanCourier' %} selected {% endif %}  value="FedX">FanCourier</option>
-                                <option {% if item.shipping_service == 'UPS' %} selected {% endif %}  value="UPS">UPS</option>
-                                <option {% if item.shipping_service == 'Cargus' %} selected {% endif %}  value="UPS">Cargus</option>
+                                <option {% if item.shipping_service == 'FanCourier' %} selected {% endif %}  value="FanCourier">FanCourier</option>
+                                <option {% if item.shipping_service == 'Sameday' %} selected {% endif %}  value="Sameday">Sameday</option>
+                                <option {% if item.shipping_service == 'Cargus' %} selected {% endif %}  value="Cargus">Cargus</option>
                             </select>
                             <label class="mb-2" for="">Id urmărire</label>
 

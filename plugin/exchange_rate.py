@@ -1,16 +1,18 @@
 from decimal import Decimal
 import requests
 
+import requests
+from decimal import Decimal
+
 def fetch_exchange_rates():
-    response = requests.get('https://api.exchangerate-api.com/v4/latest/USD')
+    response = requests.get('https://api.exchangerate-api.com/v4/latest/USD')  # or use another API that supports your needs
     data = response.json()
     return {
-        'INR': Decimal(data['rates']['INR']),
-        'NGN': Decimal(data['rates']['NGN'])
+        'RON': Decimal(data['rates']['RON']),  # Fetching the RON exchange rate
     }
 
 exchange_rates = fetch_exchange_rates()
-
+"""
 def get_usd_to_inr_rate():
     return exchange_rates['INR']
 
@@ -28,5 +30,12 @@ def convert_usd_to_kobo(usd_amount):
 
 def convert_usd_to_ngn(usd_amount):
     ngn_rate = get_usd_to_ngn_rate()
-    return usd_amount * ngn_rate
+    return usd_amount * ngn_rate"""
+def get_usd_to_ron_rate():
+    return exchange_rates['RON']
+
+def convert_usd_to_ron(usd_amount):
+    ron_rate = get_usd_to_ron_rate()
+    return usd_amount * ron_rate
+
 

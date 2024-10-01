@@ -34,7 +34,8 @@ SECRET_KEY = 'django-insecure-&)0dbnucsu)$f4pgxd0ombb4)b+oj2ci9mi=yno-veu%^doqh!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.railway.app','*']
+#ALLOWED_HOSTS = ['.railway.app','*']
+ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'https://*.ngrok-free.app', 'https://fastcart.up.railway.app']
 SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
 
@@ -100,12 +101,12 @@ WSGI_APPLICATION = 'ecom_prj.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-   # 'default': {
-   #     'ENGINE': 'django.db.backends.sqlite3',
-   #     'NAME': BASE_DIR / 'db.sqlite3',
-   # }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 
-    'default': dj_database_url.config(conn_max_age=600)
+   # 'default': dj_database_url.config(conn_max_age=600)
 }
 
 
@@ -145,14 +146,14 @@ USE_TZ = True
 
 
 
-#STATIC_URL = 'static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
-#STATIC_ROOT = BASE_DIR / 'staticfiles' sunt comentate pentru railway le decomentez si comentez mai jos pentru local
+STATIC_ROOT = BASE_DIR / 'staticfiles' #sunt comentate pentru railway le decomentez si comentez mai jos pentru local
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #si asta de jos trebuie comentata
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 MEDIA_URL = 'media/'
@@ -162,24 +163,26 @@ AUTH_USER_MODEL = 'userauths.User'
 
 
 # Stripe API Keys 
-STRIPE_PUBLIC_KEY = env("STRIPE_PUBLIC_KEY")
-STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY")
+#STRIPE_PUBLIC_KEY = env("STRIPE_PUBLIC_KEY")
+#STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY")
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
 
 # Paypal API Keys 
-PAYPAL_CLIENT_ID = env('PAYPAL_CLIENT_ID')
-PAYPAL_SECRET_ID = env('PAYPAL_SECRET_ID')
+#PAYPAL_CLIENT_ID = env('PAYPAL_CLIENT_ID')
+#PAYPAL_SECRET_ID = env('PAYPAL_SECRET_ID')
 
 # Flutterwave Keys
-FLUTTERWAVE_PUBLIC_KEY=env("FLUTTERWAVE_PUBLIC_KEY")
-FLUTTERWAVE_PRIVATE_KEY=env("FLUTTERWAVE_PRIVATE_KEY")
+#FLUTTERWAVE_PUBLIC_KEY=env("FLUTTERWAVE_PUBLIC_KEY")
+#FLUTTERWAVE_PRIVATE_KEY=env("FLUTTERWAVE_PRIVATE_KEY")
 
 # Paystack Keys
-PAYSTACK_PUBLIC_KEY=env("PAYSTACK_PUBLIC_KEY")
-PAYSTACK_PRIVATE_KEY=env("PAYSTACK_PRIVATE_KEY")
+#PAYSTACK_PUBLIC_KEY=env("PAYSTACK_PUBLIC_KEY")
+#PAYSTACK_PRIVATE_KEY=env("PAYSTACK_PRIVATE_KEY")
 
 # Razorpay keys
-RAZORPAY_KEY_ID=env("RAZORPAY_KEY_ID")
-RAZORPAY_KEY_SECRET=env("RAZORPAY_KEY_SECRET")
+#RAZORPAY_KEY_ID=env("RAZORPAY_KEY_ID")
+#RAZORPAY_KEY_SECRET=env("RAZORPAY_KEY_SECRET")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

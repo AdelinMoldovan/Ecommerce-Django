@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='orderitem',
             name='shipping_service',
-            field=models.CharField(blank=True, choices=[('DHL', 'DHL'), ('FedX', 'FedX'), ('UPS', 'UPS'), ('GIG Logistics', 'GIG Logistics')], default=None, max_length=100, null=True),
+            field=models.CharField(blank=True, choices=[('DHL', 'DHL'), ('FanCourier', 'FanCourier'), ('Sameday', 'Sameday'), ('Cargus', 'Cargus')], default=None, max_length=100, null=True),
         ),
         migrations.AddField(
             model_name='orderitem',

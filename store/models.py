@@ -16,32 +16,32 @@ STATUS = (
 )
 
 PAYMENT_STATUS = (
-    ("Paid", "Paid"),
-    ("Processing", "Processing"),
-    ("Failed", 'Failed'),
+    ("Paid", "Platită"),
+    ("Processing", "Procesată"),
+    ("Failed", 'Esuată'),
 )
 
 PAYMENT_METHOD = (
-    ("PayPal", "PayPal"),
+    #("PayPal", "PayPal"),
     ("Stripe", "Stripe"),
-    ("Flutterwave", "Flutterwave"),
-    ("Paystack", "Paystack"),
-    ("RazorPay", "RazorPay"),
+    #("Flutterwave", "Flutterwave"),
+    #("Paystack", "Paystack"),
+    #("RazorPay", "RazorPay"),
 )
 
 ORDER_STATUS = (
-    ("Pending", "Pending"),
-    ("Processing", "Processing"),
-    ("Shipped", "Shipped"),
-    ("Fulfilled", "Fulfilled"),
-    ("Cancelled", "Cancelled"),
+    ("Pending", "În așteptare"),
+    ("Processing", "În procesare"),
+    ("Shipped", "Trimisă"),
+    ("Fulfilled", "Completată"),
+    ("Cancelled", "Anulată"),
 )
 
 SHIPPING_SERVICE = (
     ("DHL", "DHL"),
-    ("FedX", "FedX"),
+    ("FanCourier", "FanCourier"),
     ("UPS", "UPS"),
-    ("GIG Logistics", "GIG Logistics")
+    ("Cargus", "Cargus")
 )
 
 

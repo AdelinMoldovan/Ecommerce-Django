@@ -10,7 +10,7 @@ from vendor import models as vendor_models
 
 def register_view(request):
     if request.user.is_authenticated:
-        messages.warning(request, f"You are already logged in")
+        messages.warning(request, f"Deja sunteți autentificat")
         return redirect('/')   
 
     form = userauths_forms.UserRegisterForm(request.POST or None)
@@ -27,7 +27,7 @@ def register_view(request):
         user = authenticate(email=email, password=password)
         login(request, user)
 
-        messages.success(request, f"Account was created successfully.")
+        messages.success(request, f"Contul a fost creat cu success")
         profile = userauths_models.Profile.objects.create(full_name = full_name, mobile = mobile, user=user)
         if user_type == "Vendor":
             vendor_models.Vendor.objects.create(user=user, store_name=full_name)
@@ -47,7 +47,7 @@ def register_view(request):
 
 def login_view(request):
     if request.user.is_authenticated:
-        messages.warning(request, "You are already logged in")
+        messages.warning(request, "Deja sunteți autentificat")
         return redirect('store:index')
     
     if request.method == 'POST':
@@ -64,7 +64,7 @@ def login_view(request):
 
                     if user_instance is not None:
                         login(request, user_authenticate)
-                        messages.success(request, "You are Logged In")
+                        messages.success(request, "Sunteți autentificat")
                         next_url = request.GET.get("next", 'store:index')
 
                         print("next_url ========", next_url)
@@ -80,11 +80,11 @@ def login_view(request):
                         return redirect(next_url)
 
                     else:
-                        messages.error(request, 'Username or password does not exist')
+                        messages.error(request, 'Numele de utilziator sau parola nu există')
                 except userauths_models.User.DoesNotExist:
                     messages.error(request, 'User does not exist')
             else:
-                messages.error(request, 'Captcha verification failed. Please try again.')
+                messages.error(request, 'Verificarea Captcha a eșuat. Vă rugăm să încercați din nou.')
 
     else:
         form = userauths_forms.LoginForm()  
@@ -98,7 +98,7 @@ def logout_view(request):
         cart_id = None
     logout(request)
     request.session['cart_id'] = cart_id
-    messages.success(request, 'You have been logged out.')
+    messages.success(request, 'Ați fost deconectat')
     return redirect("userauths:sign-in")
 
 def handler404(request, exception, *args, **kwargs):

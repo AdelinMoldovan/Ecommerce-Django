@@ -74,7 +74,7 @@ def remove_from_wishlist(request, id):
     wishlist = customer_models.Wishlist.objects.get(user=request.user, id=id)
     wishlist.delete()
     
-    messages.success(request, "item removed from wishlist")
+    messages.success(request, "produsul a fost scos din lista de dorințe")
     return redirect("customer:wishlist")
 
 
@@ -83,9 +83,9 @@ def add_to_wishlist(request, id):
         product = store_models.Product.objects.get(id=id)
         customer_models.Wishlist.objects.create(product=product, user=request.user)
         wishlist = customer_models.Wishlist.objects.filter(user=request.user)
-        return JsonResponse({"message": "Item added to wishlist", "wishlist_count": wishlist.count()})
+        return JsonResponse({"message": "produsul a fost adaugat în lista de dorințe", "wishlist_count": wishlist.count()})
     else:
-        return JsonResponse({"message": "User is not logged in", "wishlist_count": "0"})
+        return JsonResponse({"message": "Clientul nu este autentificat", "wishlist_count": "0"})
 
 
 
@@ -107,7 +107,7 @@ def mark_noti_seen(request, id):
     noti.seen = True
     noti.save()
 
-    messages.success(request, "Notification marked as seen")
+    messages.success(request, "Notificarea a fost marcată ca și citită")
     return redirect("customer:notis")
 
 
@@ -177,7 +177,7 @@ def address_create(request):
             zip_code=zip_code,
         )
 
-        messages.success(request, "Address created")
+        messages.success(request, "Adresa a fost creată")
         return redirect("customer:addresses")
     
     return render(request, "customer/address_create.html")
@@ -185,7 +185,7 @@ def address_create(request):
 def delete_address(request, id):
     address = customer_models.Address.objects.get(user=request.user, id=id)
     address.delete()
-    messages.success(request, "Address deleted")
+    messages.success(request, "Adresa a fost ștearsă")
     return redirect("customer:addresses")
 
 @login_required
@@ -206,7 +206,7 @@ def profile(request):
         request.user.save()
         profile.save()
 
-        messages.success(request, "Profile Updated Successfully")
+        messages.success(request, "Profilul a fost actualizat cu success")
         return redirect("customer:profile")
     
     context = {
@@ -222,16 +222,16 @@ def change_password(request):
         confirm_new_password = request.POST.get("confirm_new_password")
 
         if confirm_new_password != new_password:
-            messages.error(request, "Confirm Password and New Password Does Not Match")
+            messages.error(request, "Cele două parole nu se potrivesc")
             return redirect("customer:change_password")
         
         if check_password(old_password, request.user.password):
             request.user.set_password(new_password)
             request.user.save()
-            messages.success(request, "Password Changed Successfully")
+            messages.success(request, "Parola a fost schimbată cu success")
             return redirect("customer:profile")
         else:
-            messages.error(request, "Old password is not correct")
+            messages.error(request, "Vechea parolă nu este corectă")
             return redirect("customer:change_password")
     
     return render(request, "customer/change_password.html")

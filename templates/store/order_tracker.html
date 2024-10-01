@@ -84,16 +84,16 @@
                             <a target="_blank" href="https://www.dhl.com/global-en/home/tracking.html?tracking-id={{item.tracking_id}}" class="btn bg-primary text-light btn-sm rounded mt-2"> Track Order <i class="fas fa-truck ms-1"></i></a>
                         {% endif %}
 
-                        {% if item.shipping_service == "FedX" %}
-                            <a target="_blank" href="https://www.fedex.com/fedextrack/?tracknumbers={{item.tracking_id}}" class="btn bg-primary text-light btn-sm rounded mt-2"> Track Order <i class="fas fa-truck ms-1"></i></a>
+                        {% if item.shipping_service == "FanCourier" %}
+                            <a target="_blank" href="https://www.fancourier.ro/awb-tracking/?tracknumbers={{item.tracking_id}}" class="btn bg-primary text-light btn-sm rounded mt-2"> Track Order <i class="fas fa-truck ms-1"></i></a>
                         {% endif %}
 
-                        {% if item.shipping_service == "UPS" %}
-                            <a target="_blank" href="https://www.ups.com/track?tracknum={{item.tracking_id}}" class="btn bg-primary text-light btn-sm rounded mt-2"> Track Order <i class="fas fa-truck ms-1"></i></a>
+                        {% if item.shipping_service == "Sameday" %}
+                            <a target="_blank" href="https://sameday.ro/{{item.tracking_id}}" class="btn bg-primary text-light btn-sm rounded mt-2"> Track Order <i class="fas fa-truck ms-1"></i></a>
                         {% endif %}
 
-                        {% if item.shipping_service == "GIG Logistics" %}
-                            <a target="_blank" href="https://giglogistics.com/track/{{item.tracking_id}}" class="btn bg-primary text-light btn-sm rounded mt-2"> Track Order <i class="fas fa-truck ms-1"></i></a>
+                        {% if item.shipping_service == "Cargus" %}
+                            <a target="_blank" href="https://www.cargus.ro/personal/urmareste-coletul/{{item.tracking_id}}" class="btn bg-primary text-light btn-sm rounded mt-2"> Track Order <i class="fas fa-truck ms-1"></i></a>
                         {% endif %}
                             
                     </div>
@@ -144,7 +144,7 @@
             }, 3000);
             Toast.fire({
                 icon: "success",
-                title: "Tracking ID Copied!",
+                title: "ID-ul de urmărire a fost copiat",
             });
         });
     });
