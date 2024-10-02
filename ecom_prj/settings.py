@@ -213,6 +213,10 @@ LOGOUT_REDIRECT_URL = "userauths:sign-in"
 RECAPTCHA_PUBLIC_KEY = env("DJANGO_RECAPTCHA_PUBLIC_KEY")
 RECAPTCHA_PRIVATE_KEY = env("DJANGO_RECAPTCHA_PRIVATE_KEY")
 
+print(f"RECAPTCHA_PUBLIC_KEY: {env('DJANGO_RECAPTCHA_PUBLIC_KEY', default='Not Found')}")
+print(f"RECAPTCHA_PRIVATE_KEY: {env('DJANGO_RECAPTCHA_PRIVATE_KEY', default='Not Found')}")
+
+
 # Custom Admin Settings
 JAZZMIN_SETTINGS = {
     "site_title": "FastCart Ecommerce",
