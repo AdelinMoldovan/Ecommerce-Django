@@ -16,7 +16,7 @@ from environs import Env
 import os
 from django.contrib import messages
 import dj_database_url
-
+import environ
 
 env = Env()  
 env.read_env()  
@@ -210,8 +210,11 @@ LOGIN_URL = "userauths:sign-in"
 LOGIN_REDIRECT_URL = ""
 LOGOUT_REDIRECT_URL = "userauths:sign-in"
 
-RECAPTCHA_PUBLIC_KEY = env("DJANGO_RECAPTCHA_PUBLIC_KEY")
-RECAPTCHA_PRIVATE_KEY = env("DJANGO_RECAPTCHA_PRIVATE_KEY")
+#RECAPTCHA_PUBLIC_KEY = env("DJANGO_RECAPTCHA_PUBLIC_KEY")
+#RECAPTCHA_PRIVATE_KEY = env("DJANGO_RECAPTCHA_PRIVATE_KEY")
+
+RECAPTCHA_PUBLIC_KEY = os.environ.get("DJANGO_RECAPTCHA_PUBLIC_KEY", "default_value")
+RECAPTCHA_PRIVATE_KEY = os.environ.get("DJANGO_RECAPTCHA_PRIVATE_KEY", "default_value")
 
 print(f"RECAPTCHA_PUBLIC_KEY: {env('DJANGO_RECAPTCHA_PUBLIC_KEY', default='Not Found')}")
 print(f"RECAPTCHA_PRIVATE_KEY: {env('DJANGO_RECAPTCHA_PRIVATE_KEY', default='Not Found')}")
